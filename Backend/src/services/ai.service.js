@@ -92,11 +92,8 @@ async function generateContent(prompt) {
 
     return response.text;
   } catch (err) {
-
-    return res.status(400).json({
-      message: "Gemini Response Error Please Try Again"
-    })
-    
+      console.error("Gemini Error:", err);
+      throw new Error("Gemini Response Error Please Try Again");
   }
 
 }
