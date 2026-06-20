@@ -7,7 +7,6 @@ const ai = new GoogleGenAI({
 async function generateContent(prompt) {
 
   try {
-    console.log("Ai is Called");
 
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash-lite",
@@ -91,12 +90,10 @@ async function generateContent(prompt) {
 
     });
 
-    console.log("Responsed Successfully");
-
     return response.text;
   } catch (err) {
 
-    res.status(400).json({
+    return res.status(400).json({
       message: "Gemini Response Error Please Try Again"
     })
     
